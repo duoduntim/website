@@ -1,0 +1,145 @@
+{% extends 'core/base.html'%}
+
+{% block title %}
+    portfolio | resume
+{% endblock %}
+
+{% block content %}
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark  text-light fixed-top ">
+    <div class="container ">
+        <a href="#" class="navbar-brand text-light fs-3 px-3"> <span class="text-secondary fs-2 text-light">KWABS</span>ntim</a>
+            <button 
+                class="navbar-toggler" 
+                type="button" 
+                data-bs-toggle="collapse"
+                data-bs-target="#navmenu">
+        
+                <span class="navbar-toggler-icon"></span>
+        
+            </button>
+      
+         <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto align-items-center">
+                
+                <li class="nav-item">
+                    <a href="{% url 'index' %}" class="nav-link"><i class="bi bi-house"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'contact' %}" class="nav-link"><i class="bi bi-telephone"></i> Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'projects' %}" class="nav-link"><i class="bi bi-tools"></i> Projects</a>
+                </li>
+            </ul>
+         </div>
+    </div>
+   
+    
+</nav>  
+<div class="container ">
+    
+        <section class="resume-section mt-5" id="education">
+            <div class="resume-section-content mt-5">
+                <h2 class="pt-5 fs-1 text-success">Education</h2>
+                {% for item in all %}
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0 text-white fs-4">{{ item.School }}</h3>
+                        <div class=" mb-3 fs-5">{{ item.program }}</div>
+                        <div>{{ item.Thingslearnt }}</div>
+                            
+                        </div>
+                        <div class="flex-shrink-0 ps-5"><span class="text-warning">{{ item.Duration }}</span></div>
+                    </div>
+                {% endfor %}
+                
+            </div>
+        </section>
+    <hr class="m-0" />
+</div>
+
+    <div class="container">
+        <section class="resume-section" id="skills">
+            <div class="resume-section-content">
+                <h2 class="mt-3 text-success fs-1">Skills</h2>
+                
+                {% for item in eve %}
+                    <ul class="list-inline dev-icons">
+                        {{ item.name}}
+                    </ul>
+                {% endfor %}
+            </div>
+        <hr class="m-0" />
+        
+    </div>
+    <div class="container">
+        <section class="resume-section" id="experience">
+            <div class="resume-section-content">
+                <h2 class="mt-3 fs-1 text-success">Experience</h2>
+                {% for item in ing %}
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                                <h3 class="mb-0">{{ item.name }}</h3>
+                                <div class="subheading mb-3">{{ item.company }}</div>
+                               <p>{{ item.description }}</p>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-warning">{{ item.period }}</span></div>
+                    </div>
+                {% endfor %}
+            </div>
+            <hr class="m-0" />
+        </section>
+
+    </div>
+    <div class="container">
+        <section class="resume-section" id="skills">
+            <div class="resume-section-content">
+                <h2 class="mt-3 text-success fs-1">Programming langs. & Frameworks</h2>
+                
+                {% for item in evg %}
+                    <ul class="list-inline dev-icons">
+                        {{ item.name}}
+                    </ul>
+                {% endfor %}
+            </div>
+            <hr class="m-0" />
+        
+        
+    </div>
+    <div class="container mb-5">
+        <section class="resume-section" id="interests">
+            <div class="resume-section-content">
+                <h2 class="mt-3 mb-3 fs-1 text-success">Interests</h2>
+                <p>Apart from being a web developer, I enjoy most of my time being outdoors.</p>
+                <p class="mb-0">When forced indoors, I follow a number of sci-fi and fantasy genre movies and television shows, I am an aspiring electrical engineer, and I spend a large amount of my free time exploring the latest technology advancements in the front-end web development world.</p>
+            </div>
+        </section>
+    </div>
+    
+
+<section class="footer  ">
+    <footer class=" bg-primary pt-3 my-auto text-light mt-1 mb-3 py-4" >
+        <div class="container px-5 ">
+            <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                <div class="col-auto"><div class="small m-0">Copyright &copy; Kwabs ntim 2024</div></div>
+                <div class="col-auto">
+                    <a class="text-light mx-1" href="#!"><i class="bi bi-linkedin"></i></a>
+                    <a class="text-light mx-1" href="#!"><i class="bi bi-github"></i></a>
+                    <a class="text-light mx-1" href="#!"><i class="bi bi-whatsapp"></i></a>
+                    <a class="text-light mx-1" href="#!"><i class="bi bi-twitter"></i></a>
+                </div>
+                <div class="col-auto ">
+                    <a class="small text-light" href="#!">Privacy</a>
+                    <span class="mx-1">&middot;</span>
+                    <a class="small text-light" href="#!">Terms</a>
+                    <span class="mx-1">&middot;</span>
+                    <a class="small text-light" href="#!">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</section>
+    
+    
+{% endblock %}

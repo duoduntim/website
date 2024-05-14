@@ -1,0 +1,103 @@
+{% extends 'core/base.html'%}
+
+{% block title %}
+    portfolio | projects
+{% endblock %}
+
+{% block content %}
+    <!--navbar-->
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-4 text-light fixed-top mb-3">
+    <div class="container ">
+        <a href="#" class="navbar-brand text-light fs-3 px-3"> <span class="text-secondary fs-2 text-light">KWABS</span>ntim</a>
+            <button 
+                class="navbar-toggler" 
+                type="button" 
+                data-bs-toggle="collapse"
+                data-bs-target="#navmenu">Menu
+        
+                <span class="navbar-toggler-icon"></span>
+        
+            </button>
+      
+         <div class="collapse navbar-collapse" id="navmenu">
+            <ul class="navbar-nav ms-auto align-items-center">
+                
+                <li class="nav-item">
+                    <a href="{% url 'index' %}" class="nav-link"><i class="bi bi-house"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'contact' %}" class="nav-link"><i class="bi bi-telephone"></i> Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'resume' %}" class="nav-link"><i class="bi bi-people"></i> Resume</a>
+                </li>
+            </ul>
+         </div>
+    </div>
+    
+</nav>
+<section class="text-center text-light py-5 mt-5">
+    <div class="container">
+        <div class=" fs-2 start text-warning fw-bolder display-5 my-5"><i class="bi bi-tools"></i> Projects</div>
+    </div>
+    
+    {% for item in all %}
+        <div class="container">
+
+            <div class="card shadow-light rounded-4 my-4">
+                <div class="card-body p-5">
+                    <div class="row align-items-center gx-5">
+                        <div class="col-md text-center p-4 rounded-4 ">
+                            <div class="bg-light rounded-4 p-5 mx-2">
+                                
+                                <hr>            
+                                <p class="text-dark fw-bold">Project Title : {{ item.Name}}</p>
+                                <p class="text-primary fw-bold">Date : {{ item.date }}</p>
+                                <a href="">Link to project  <i class="bi bi-arrow-up-right-circle"></i></a> 
+                               <hr>
+                            </div>
+                        </div>
+                        <div class="col-md text-center fs-5">{{ item.Description }}</div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+       
+            
+    {% endfor %}
+
+       
+    </section>
+    <section class="py-5 bg-primary text-white">
+        <div class="container px-5 my-5">
+            <div class="text-center">
+                <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
+                <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="">Contact me</a>
+            </div>
+        </div>
+    </section>
+    <section class="footer border-top ">
+        <footer class=" bg-dark py-4 mt-auto text-light ">
+            <div class="container px-5 ">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Kwabs ntim 2024</div></div>
+                    <div class="col-auto">
+                        <a class="text-gradient mx-1" href="#!"><i class="bi bi-linkedin"></i></a>
+                        <a class="text-light mx-1" href="#!"><i class="bi bi-github"></i></a>
+                        <a class="text-success mx-1" href="#!"><i class="bi bi-whatsapp"></i></a>
+                        <a class="text-primary mx-1" href="#!"><i class="bi bi-twitter"></i></a>
+                    </div>
+                    <div class="col-auto ">
+                        <a class="small text-light" href="#!">Privacy</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small text-light" href="#!">Terms</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small text-light" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+   
+{% endblock %}

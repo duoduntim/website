@@ -1,0 +1,135 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}
+    portfolio | welcome
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<!--navbar-->
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-4 text-light fixed-top mb-3">
+    <div class="container ">
+        <a href="#" class="navbar-brand text-light fs-3 px-3"> <span class="text-secondary fs-2 text-light">KWABS</span>ntim</a>
+            <button 
+                class="navbar-toggler" 
+                type="button" 
+                data-bs-toggle="collapse"
+                data-bs-target="#navmenu">
+        
+                <span class="navbar-toggler-icon"></span>
+        
+            </button>
+      
+         <div class="collapse navbar-collapse " id="navmenu">
+            <ul class="navbar-nav ms-auto align-items-center">
+                
+                <li class="nav-item">
+                    <a href="{% url 'resume' %}" class="nav-link"><i class="bi bi-people"></i> Resume</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'contact' %}" class="nav-link"><i class="bi bi-telephone"></i> Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'projects' %}" class="nav-link"><i class="bi bi-tools"></i> Projects</a>
+                </li>
+            </ul>
+         </div>
+    </div>
+    
+</nav>
+    <section class="text-center text-light py-5 mt-5">
+        <div class="container p-5">
+            <div class="d-md-flex  justify-content-between align-items-center ">
+                <div class="text-sm-start px-1">
+                    <div class="badge bg-gradient-primary-to-secondary text-white mb-5 px-1">
+                        <div class="text-uppercase"> Web Design &middot; Web Development</div>
+                    </div>
+                    <p class="fs-1">Hi There</p>
+                    <h1>I am <span class="text-warning">Peter Prince Ntim Duodu</span></h1>
+                    <p class="fs-1">A Web Designer and  developer</p>
+                    <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bold mt-4 mb-3" href="{% url 'resume' %}">Resume</a>
+                    <a class="btn btn-secondary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bold mt-4 mb-3 " href="{% url 'projects' %}">Projects</a>
+                </div>
+                <img src="{% static 'images/picture.jpg' %}" alt="" class="image-fluid  mt-2 d-none d-sm-block " style="border-radius: 100%; width:300px;">
+            </div>
+
+        </div>
+
+    </section>
+    <section class="text-center text-light py-5  ">
+        
+        <div class="container border-top">
+            <div class="row gx-5 justify-content-center mt-4">
+                <div class="col-xxl-8 ">
+                    <div class="text-center ">
+                        <h2 class="text-light display-5 fw-bolder">About Me</h2>
+                        <p class="lead fw-light mb-4 mx-4">My name is Ntim peter prince Duodu, I am a web Designer and  Developer.</p>
+                        <p class="mx-4">I am a lover of tech and an enthusiastic developer and I also have passion for new and up coming innovations in the world. I like to solve real life problems using software and I like programming very much.</p>
+                        <div class="d-flex justify-content-center fs-2 gap-4">
+                            
+                            <a class="text-gradient" href="#!"><i class="bi bi-linkedin"></i></a>
+                            <a class="text-light" href="#!"><i class="bi bi-github"></i></a>
+                            <a class="text-success" href="#!"><i class="bi bi-whatsapp"></i></a>
+                            <a class="text-primary" href="#!"><i class="bi bi-twitter"></i></a>
+                        </div>
+                    </div>
+                   
+
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <section class="footer ">
+        <footer class=" bg-primary py-4 mt-auto text-light ">
+            <div class="container px-5 ">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0">Copyright &copy; Kwabs ntim 2024</div></div>
+                    <div class="col-auto ">
+                        <a class="small text-light" href="#!">Privacy</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small text-light" href="#!">Terms</a>
+                        <span class="mx-1">&middot;</span>
+                        <a class="small text-light" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+   
+        
+   
+
+{% endblock %}
+
+<div class="preloader">
+    <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+{% block extrascripts %}
+<script>
+    // Function to hide the preloader after a delay
+    function hidePreloader() {
+        const preloader = document.querySelector(".preloader");
+        preloader.style.display = "none";
+    }
+
+    // Delay before hiding the preloader (in milliseconds)
+    const delayDuration = 20000; // Adjust this value as needed (e.g., 2000 milliseconds = 2 seconds)
+
+    // Show the preloader initially
+    window.addEventListener("DOMContentLoaded", function() {
+        const preloader = document.querySelector(".preloader");
+        preloader.style.display = "block";
+
+        // Hide the preloader after the specified delay
+        setTimeout(hidePreloader, delayDuration);
+    });
+</script>
+{% endblock %}
